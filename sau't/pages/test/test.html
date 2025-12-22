@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Тестовая страница — LoliLand</title>
 
+  <!-- Общие стили -->
+  <link rel="stylesheet" href="rediz/sau't/styles/common.css" />
+  <link rel="stylesheet" href="rediz/sau't/styles/menu/menu.css" />
+  <link rel="stylesheet" href="rediz/sau't/styles/stars/stars.css" />
+
+  <!-- Для 3D-моделей -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    .text-block {
+      background: rgba(255, 255, 255, 0.6);
+      padding: 20px;
+      margin: 30px 0;
+      border-radius: 12px;
+      backdrop-filter: blur(5px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .model-container {
+      margin: 30px 0;
+    }
+    model-viewer {
+      width: 100%;
+      height: 300px;
+      border-radius: 12px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 24px;
+      background: #6a5acd;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: opacity 0.2s;
+    }
+    .btn:hover {
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Фон: звёзды -->
+  <div id="stars-container"></div>
+
+  <!-- Меню -->
+  <nav class="navbar" id="mainNav">
+    <div class="navbar-container">
+      <a href="../../index.html" class="navbar-logo">LoliLand</a>
+      <div class="menu-toggle" id="mobileMenuButton">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="../../index.html" class="nav-link">ГЛАВНАЯ</a></li>
+        <li class="dropdown">
+          <a href="#" class="nav-link dropdown-toggle">ГАЙДЫ</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-columns">
+              <div class="column">
+                <a href="../../pages/guides/guides.html#magic">МАГИЯ</a>
+                <a href="../../pages/guides/guides.html#tech">ТЕХНОЛОГИИ</a>
+                <a href="../../pages/guides/guides.html#dimensions">ИЗМЕРЕНИЯ</a>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li><a href="../../pages/warp-prices/warp-prices.html" class="nav-link">ЦЕНЫ ВАРПА</a></li>
+        <li><a href="#" class="nav-link">УСЛУГИ</a></li>
+        <li><a href="#" class="nav-link">О САЙТЕ</a></li>
+        <li><a href="#" class="nav-link">О СЕРВЕРЕ</a></li>
+        <li><a href="../../pages/creators/creators.html" class="nav-link creators-link">СОЗДАТЕЛИ</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Основной контент -->
+  <main>
+    <div class="content">
+
+      <h1>Тестовая страница</h1>
+
+      <div class="text-block">
+        <h2>Текстовый блок #1</h2>
+        <p>Этот блок проверяет центрирование, фон с блюром и читаемость текста на светлом фоне #F8F8FF.</p>
+        <a href="#" class="btn">Кнопка 1</a>
+        <a href="#" class="btn">Кнопка 2</a>
+      </div>
+
+      <div class="model-container">
+        <h3>3D-модель: Куб</h3>
+        <model-viewer
+          src="rediz/sau't/assets/models/helio/gbl"
+          alt="Тестовый куб"
+          auto-rotate
+          camera-controls
+          shadow-intensity="1"
+          ar
+        ></model-viewer>
+      </div>
+
+      <div class="text-block">
+        <h2>Текстовый блок #2</h2>
+        <p>Здесь может быть описание предмета, мода или инструкция. Поддерживается вставка изображений, ссылок и кнопок.</p>
+        <a href="#" class="btn" style="background:#ff6b6b;">Действие</a>
+      </div>
+
+      <div class="model-container">
+        <h3>3D-модель: Меч (если есть)</h3>
+        <model-viewer
+          src="rediz/sau't/assets/models/helio/gbl"
+          alt="Меч"
+          auto-rotate
+          camera-controls
+          shadow-intensity="1"
+        ></model-viewer>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Скрипты -->
+  <script src="rediz/sau't/styles/stars/stars.js"></script>
+  <script src="rediz/sau't/styles/menu/menu.js"></script>
+
+</body>
+</html>
