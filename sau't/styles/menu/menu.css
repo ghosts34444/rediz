@@ -1,0 +1,185 @@
+/* styles/menu/menu.css */
+
+.navbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 1750px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 2px solid rgba(80, 80, 120, 0.3);
+  border-radius: 16px;
+  z-index: 1000;
+  padding: 14px 0;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.3);
+}
+
+.nav-menu {
+  display: flex;
+  justify-content: center;
+  gap: 69px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #e0e0ff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: rgba(184, 182, 197, 0.2);
+  color: white;
+  box-shadow: 0px 0 10px rgba(195, 187, 243, 0.4);
+}
+
+.nav-link.active {
+  background: rgba(200, 195, 233, 0.3);
+  font-weight: bold;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 250%;
+  left: -53px;
+  background: rgba(255, 255, 255, 0.08); /* такой же фон, как у меню */
+  backdrop-filter: blur(150px);
+  -webkit-backdrop-filter: blur(150px);
+  border: 2px solid rgba(80, 80, 120, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px (195, 187, 243, 0.4);
+  padding: 16px;
+  min-width: 200px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1001;
+  color: #f0f0ff;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-columns {
+  display: flex;
+  gap: 24px;
+}
+
+.column h4 {
+  font-size: 0.9em;
+  color: #b3b3cc;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.column a {
+  display: block;
+  padding: 8px 12px;
+  color: #e0e0ff;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.2s;
+}
+
+.column a:hover {
+  background: rgba(106, 90, 205, 0.2);
+  color: white;
+}
+
+/* Мобильное меню */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle span {
+  width: 24px;
+  height: 3px;
+  background: #e0e0ff;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 100%;
+    max-width: none;
+    flex-direction: column;
+    background: rgba(20, 20, 35, 0.95);
+    backdrop-filter: blur(12px);
+    border-left: none;
+    padding: 80px 20px 20px;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+    overflow-y: auto;
+    z-index: 1001;
+  }
+
+  .nav-menu.active {
+    transform: translateX(0);
+  }
+
+  .creators-link {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  /* Убираем рамку и отступы */
+  .dropdown-menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    background: transparent;
+    padding: 10px 0 0;
+  }
+
+  .dropdown:not(.open) .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.open .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Overlay for mobile menu */
+body.no-scroll::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  pointer-events: none;
+}
